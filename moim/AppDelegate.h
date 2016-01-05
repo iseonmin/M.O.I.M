@@ -8,8 +8,23 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "MainViewController.h"
+
+
+/*
+#define INIT_WITH_NIB_FOR_CUSTON(Class, ClassName, v) \
+if([[UIScreen mainScreen]bounds].size.height==568) \
+v = ([[Class alloc]initWithNibName:[NSString stringWithFormat:@"%@@1",ClassName] bundle:nil]); \
+else if([[UIScreen mainScreen]bounds].size.height==667) \
+v = ([[Class alloc]initWithNibName:[NSString stringWithFormat:@"%@",ClassName] bundle:nil]); \
+else if([[UIScreen mainScreen]bounds].size.height==736) \
+v = ([[Class alloc]initWithNibName:[NSString stringWithFormat:@"%@@2",ClassName] bundle:nil]); \
+else  \
+v = ([[Class alloc]initWithNibName:[NSString stringWithFormat:@"%@@1", ClassName] bundle:nil]);
+*/
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
+
 
 @property (strong, nonatomic) UIWindow *window;
 
@@ -20,6 +35,7 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
+//@property (strong, nonatomic) MainViewController *mainView;
+@property (strong, nonatomic) UIViewController* mainView;
 
 @end
-

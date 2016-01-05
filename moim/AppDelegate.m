@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "singleton.h"
+#import <Parse/Parse.h>
 
 @interface AppDelegate ()
 
@@ -16,7 +18,60 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    /* parse setting */
+    [Parse enableLocalDatastore];
+
+    /* moim key
+    // Initialize Parse.
+    [Parse setApplicationId:@"H3y9j7qVWoEv8d3JSxg3OblHoiphFhFCyu3Ev0yv"
+                  clientKey:@"dnGmFj1Sc8yR13HMrpZ5JFPKtR1DMrL9ZIIoUiyv"];
+
+    */
+    
+    // test key
+    [Parse setApplicationId:@"MkTp9tU7KpOyUD37dRj507qbBDdWuFpIiD4NXQIh"
+                  clientKey:@"TY0GvCXiwRiEHru8791PNsH2AUYYrdhYOTgKcC2k"];
+    // [Optional] Track statistics around application opens.
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    
+    
+    /* delete storyboard setting */
+     
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    self.mainView = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+    UINavigationController *navigation = [[UINavigationController alloc]initWithRootViewController:self.mainView];
+    self.window.rootViewController = navigation;
+    [self.window makeKeyAndVisible];
+     
+
+    
+    /* 로그인정보 확인 후 시작화면 초기화
+     
+    singleton * single = [singleton getSingleton];
+    
+    BOOL isLogin = [single isLogin];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+     Override point for customization after application launch.
+    if ( isLogin ) {
+        self.mainView = [[MainViewController alloc] initWithNibName:@"TaskListViewController" bundle:nil];
+    }
+    else {
+        [single logout:nil];
+
+        self.mainView = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+    }
+
+    UINavigationController *navigation = [[UINavigationController alloc]initWithRootViewController:self.mainView];
+    self.window.rootViewController = navigation;
+    [self.window makeKeyAndVisible];
+    
+     */
+    
     return YES;
 }
 
