@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="naverd2.moim.com.moim" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name="naverd2.moim.com.moim.Parse.ParseApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".IntroActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".LoginActivity" >
+        </activity>
+
+        <activity android:name=".SigninActivity" >
+        </activity>
+
+        <activity android:name=".MainActivity" >
+        </activity>
+
+
+        <meta-data
+            android:name="com.parse.APPLICATION_ID"
+            android:value="H3y9j7qVWoEv8d3JSxg3OblHoiphFhFCyu3Ev0yv" />
+        <meta-data
+            android:name="com.parse.CLIENT_KEY"
+            android:value="dnGmFj1Sc8yR13HMrpZ5JFPKtR1DMrL9ZIIoUiyv" />
+
+
+        <service
+            android:name=".MyService"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
+    </application>
+
+</manifest>
